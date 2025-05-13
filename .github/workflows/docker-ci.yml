@@ -36,7 +36,7 @@ jobs:
           annotations: ${{ steps.meta.outputs.annotations }}
           provenance: true
           sbom: true
-          build-args:
+          build-args: |
             MPLAB_DOWNLOAD=www.microchip.com/bin/download?f=aHR0cHM6Ly93dzEubWljcm9jaGlwLmNvbS9kb3dubG9hZHMvYWVtRG9jdW1lbnRzL2RvY3VtZW50cy9ERVYvUHJvZHVjdERvY3VtZW50cy9Tb2Z0d2FyZVRvb2xzL01QTEFCWC12Ni4yMC1saW51eC1pbnN0YWxsZXIudGFy
             MPLAB_VERSION=6.20
             CMSIS_DOWNLOAD=https://packs.download.microchip.com/ARM.CMSIS.5.8.0.atpack
