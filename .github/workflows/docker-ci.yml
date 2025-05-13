@@ -36,3 +36,14 @@ jobs:
           annotations: ${{ steps.meta.outputs.annotations }}
           provenance: true
           sbom: true
+          build-args:
+            MPLAB_DOWNLOAD=www.microchip.com/bin/download?f=aHR0cHM6Ly93dzEubWljcm9jaGlwLmNvbS9kb3dubG9hZHMvYWVtRG9jdW1lbnRzL2RvY3VtZW50cy9ERVYvUHJvZHVjdERvY3VtZW50cy9Tb2Z0d2FyZVRvb2xzL01QTEFCWC12Ni4yMC1saW51eC1pbnN0YWxsZXIudGFy
+            MPLAB_VERSION=6.20
+            CMSIS_DOWNLOAD=https://packs.download.microchip.com/ARM.CMSIS.5.8.0.atpack
+            CMSIS_VERSION=5.8.0
+            DFP_DOWNLOAD=https://packs.download.microchip.com/Microchip.SAMV71_DFP.4.10.230.atpack
+            DFP_VERSION=4.10.230
+            RT_DFP_DOWNLOAD=https://packs.download.microchip.com/Microchip.SAMV71-RT_DFP.1.2.125.atpack
+            RT_DFP_VERSION=1.2.125
+            XC32_DOWNLOAD=https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc32-v4.45-full-install-linux-x64-installer.run
+            XC32_VERSION=4.45

@@ -9,7 +9,7 @@ XC32_VERSION=4.45
 MPLAB_DOWNLOAD_EX="www.microchip.com/bin/download?f=$(echo -n "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v$MPLAB_VERSION-linux-installer.tar" | base64 -w 0)"
 CMSIS_DOWNLOAD_EX="https://packs.download.microchip.com/ARM.CMSIS.$CMSIS_VERSION.atpack"
 DFP_DOWNLOAD_EX="https://packs.download.microchip.com/Microchip.SAMV71_DFP.$DFP_VERSION.atpack"
-RT_DFP_DOWNLOAD_EX="https://packs.download.microchip.com/Microchip.SAMV71-RT_DFP.$DFP_VERSION.atpack"
+RT_DFP_DOWNLOAD_EX="https://packs.download.microchip.com/Microchip.SAMV71-RT_DFP.$RT_DFP_VERSION.atpack"
 XC32_DOWNLOAD_EX="https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc32-v${XC32_VERSION}-full-install-linux-x64-installer.run"
 
 echo "Building for MPLAB $MPLAB_VERSION (SAMV71_DFP $DFP_VERSION CMSIS $CMSIS_VERSION)"
