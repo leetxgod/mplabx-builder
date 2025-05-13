@@ -18,7 +18,7 @@ ARG DFP_VERSION
 ARG RT_DFP_DOWNLOAD
 ARG RT_DFP_VERSION
 
-ENV USER_AGENT="Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+ENV USER_AGENT="Mozilla/5.0"
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends apt-utils && \
@@ -35,7 +35,7 @@ RUN wget -q --user-agent="${USER_AGENT}" \
 
 RUN  tar xf MPLABX-${MPLAB_VERSION}-linux-installer.tar && rm -f MPLABX-${MPLAB_VERSION}-linux-installer.tar \
  && USER=root ./*-installer.sh --nox11 \
- -- --unattendedmodeui none --mode unattended 
+ -- --unattendedmodeui none --mode unattended
 
 RUN rm -f MPLABX-v${MPLAB_VERSION}-linux-installer.sh && \
  cd /opt/microchip/mplabx/v${MPLAB_VERSION}/ && \
@@ -48,6 +48,8 @@ RUN rm -f MPLABX-v${MPLAB_VERSION}-linux-installer.sh && \
  rm -rf Microchip && \
  mkdir Microchip
 
+ ENV PATH=$PATH:/opt/microchip/mplabx/v${MPLAB_VERSION}/mplab_platform/bin
+
 RUN wget -q --user-agent="${USER_AGENT}" "${DFP_DOWNLOAD}" \
  && mkdir -p /opt/microchip/mplabx/v${MPLAB_VERSION}/packs/Microchip/${DFP}/ \
  && USER=root unzip -o Microchip.${DFP}.${DFP_VERSION}.atpack -d /opt/microchip/mplabx/v${MPLAB_VERSION}/packs/Microchip/${DFP}/${DFP_VERSION} \
@@ -58,4 +60,9 @@ RUN wget -q --user-agent="${USER_AGENT}" "${RT_DFP_DOWNLOAD}" \
  && USER=root unzip -o Microchip.${RT_DFP}.${RT_DFP_VERSION}.atpack -d /opt/microchip/mplabx/v${MPLAB_VERSION}/packs/Microchip/${RT_DFP}/${RT_DFP_VERSION} \
  && rm Microchip.${RT_DFP}.${RT_DFP_VERSION}.atpack
 
-#RUN wget -q --user-agent="${USER_AGENT}" "${XC32_DOWNLOAD}" \
+RUN wget -q --user-agent="${USER_AGENT}" "${XC32_DOWNLOAD}" -O XC32-${XC32_VERSION}.run \
+  && mkdir -p /opt/compiler/xc32/v4.45 \
+  && USER=root \
+  && chmod +x XC32-${XC32_VERSION}.run \
+  && ./XC32-${XC32_VERSION}.run --unattendedmodeui none --mode unattended --netservername localhost \
+  && rm -f XC32-${XC32_VERSION}.run
